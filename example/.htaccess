@@ -1,0 +1,11 @@
+php_flag display_errors On
+php_flag html_errors On
+
+# Add access control header
+# Needed to get webfonts working in Firefox
+
+<FilesMatch "\.(ttf|otf|woff)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</FilesMatch>

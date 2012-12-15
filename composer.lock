@@ -1,0 +1,564 @@
+{
+    "hash": "990db80d76665a0861de5f27bc2f25d9",
+    "packages": [
+        {
+            "name": "pear-pear.php.net/Archive_Tar",
+            "version": "1.3.10",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Archive_Tar-1.3.10.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0"
+            },
+            "replace": {
+                "pear-pear/archive_tar": "== 1.3.10.0",
+                "pear/archive_tar": "== 1.3.10.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "This class provides handling of tar files in PHP.\nIt supports creating, listing, extracting and adding to tar files.\nGzip support is available if PHP has the zlib extension built-in or\nloaded. Bz2 compression is also supported with the bz2 extension loaded."
+        },
+        {
+            "name": "pear-pear.php.net/Console_Getopt",
+            "version": "1.3.1",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Console_Getopt-1.3.1.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0"
+            },
+            "replace": {
+                "pear-pear/console_getopt": "== 1.3.1.0",
+                "pear/console_getopt": "== 1.3.1.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "This is a PHP implementation of &quot;getopt&quot; supporting both\nshort and long options."
+        },
+        {
+            "name": "pear-pear.php.net/DB",
+            "version": "1.7.14",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/DB-1.7.14.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.2.0.0",
+                "pear-pear.php.net/pear": ">=1.0.0.0"
+            },
+            "replace": {
+                "pear-pear/db": "== 1.7.14.0",
+                "pear/db": "== 1.7.14.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "DB is a database abstraction layer providing:\n* an OO-style query API\n* portability features that make programs written for one DBMS work with other DBMS's\n* a DSN (data source name) format for specifying database servers\n* prepare/execute (bind) emulation for databases that don't support it natively\n* a result object for each query response\n* portable error codes\n* sequence emulation\n* sequential and non-sequential row fetching as well as bulk fetching\n* formats fetched rows as associative arrays, ordered arrays or objects\n* row limit support\n* transactions support\n* table information interface\n* DocBook and phpDocumentor API documentation\n\nDB layers itself on top of PHP's existing\ndatabase extensions.\n\nDrivers for the following extensions pass\nthe complete test suite and provide\ninterchangeability when all of DB's\nportability options are enabled:\n\n  fbsql, ibase, informix, msql, mssql,\n  mysql, mysqli, oci8, odbc, pgsql,\n  sqlite and sybase.\n\nThere is also a driver for the dbase\nextension, but it can't be used\ninterchangeably because dbase doesn't\nsupport many standard DBMS features.\n\nDB is compatible with both PHP 4 and PHP 5."
+        },
+        {
+            "name": "pear-pear.php.net/DB_DataObject",
+            "version": "1.10.0",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/DB_DataObject-1.10.0.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0",
+                "pear-pear.php.net/db": ">=1.7.0.0",
+                "pear-pear.php.net/date": ">=1.4.3.0"
+            },
+            "replace": {
+                "pear-pear/db_dataobject": "== 1.10.0.0",
+                "pear/db_dataobject": "== 1.10.0.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "DataObject performs 2 tasks:\n  1. Builds SQL statements based on the objects vars and the builder methods.\n  2. acts as a datastore for a table row.\n  The core class is designed to be extended for each of your tables so that you put the\n  data logic inside the data classes.\n  included is a Generator to make your configuration files and your base classes."
+        },
+        {
+            "name": "pear-pear.php.net/DB_DataObject_FormBuilder",
+            "version": "1.0.2",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/DB_DataObject_FormBuilder-1.0.2.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0",
+                "pear-pear.php.net/db_dataobject": ">=1.8.5.0",
+                "pear-pear.php.net/html_quickform": ">=3.2.4.0"
+            },
+            "replace": {
+                "pear-pear/db_dataobject_formbuilder": "== 1.0.2.0",
+                "pear/db_dataobject_formbuilder": "== 1.0.2.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "DB_DataObject_FormBuilder will aid you in rapid application development using the packages DB_DataObject and HTML_QuickForm. For having a quick but working prototype of your application, simply model the database, run DataObject&amp;amp;apos;s createTable script over it and write a script that passes one of the resulting objects to the FormBuilder class. The FormBuilder will automatically generate a simple but working HTML_QuickForm object that you can use to test your application. It also provides a processing method that will automatically detect if an insert() or update() command has to be executed after the form has been submitted. If you have set up DataObject&amp;amp;apos;s links.ini file correctly, it will also automatically detect if a table field is a foreign key and will populate a selectbox with the linked table&amp;amp;apos;s entries. There are many optional parameters that you can place in your DataObjects.ini or in the properties of your derived classes, that you can use to fine-tune the form-generation, gradually turning the prototypes into fully-featured forms, and you can take control at any stage of the process."
+        },
+        {
+            "name": "pear-pear.php.net/Date",
+            "version": "1.4.7",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Date-1.4.7.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0"
+            },
+            "replace": {
+                "pear-pear/date": "== 1.4.7.0",
+                "pear/date": "== 1.4.7.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "Generic classes for representation and manipulation of\ndates, times and time zones without the need of timestamps,\nwhich is a huge limitation for PHP programs.  Includes time zone data,\ntime zone conversions and many date/time conversions.\nIt does not rely on 32-bit system date stamps, so\nyou can display calendars and compare dates that date\npre 1970 and post 2038."
+        },
+        {
+            "name": "pear-pear.php.net/HTML_Common",
+            "version": "1.2.5",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/HTML_Common-1.2.5.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.0.4.0"
+            },
+            "replace": {
+                "pear-pear/html_common": "== 1.2.5.0",
+                "pear/html_common": "== 1.2.5.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "The PEAR::HTML_Common package provides methods for html code display and attributes handling.\n* Methods to set, remove, update html attributes.\n* Handles comments in HTML code.\n* Handles layout, tabs, line endings for nicer HTML code."
+        },
+        {
+            "name": "pear-pear.php.net/HTML_QuickForm",
+            "version": "3.2.13",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/HTML_QuickForm-3.2.13.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0",
+                "pear-pear.php.net/html_common": ">=1.2.1.0"
+            },
+            "replace": {
+                "pear-pear/html_quickform": "== 3.2.13.0",
+                "pear/html_quickform": "== 3.2.13.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "NOTICE: development of HTML_QuickForm version 3 is frozen. Please submit\nfeature requests for HTML_QuickForm2 package.\n\nThe HTML_QuickForm package provides methods to dynamically create, validate\nand render HTML forms.\n\nFeatures:\n* More than 20 ready-to-use form elements.\n* XHTML compliant generated code.\n* Numerous mixable and extendable validation rules.\n* Automatic server-side validation and filtering.\n* On request javascript code generation for client-side validation.\n* File uploads support.\n* Total customization of form rendering.\n* Support for external template engines (ITX, Sigma, Flexy, Smarty).\n* Pluggable elements, rules and renderers extensions."
+        },
+        {
+            "name": "pear-pear.php.net/HTML_Table",
+            "version": "1.8.3",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/HTML_Table-1.8.3.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0",
+                "pear-pear.php.net/html_common": ">=1.2.3.0"
+            },
+            "replace": {
+                "pear-pear/html_table": "== 1.8.3.0",
+                "pear/html_table": "== 1.8.3.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "The PEAR::HTML_Table package provides methods for easy and efficient design of HTML tables.\n - Lots of customization options.\n - Tables can be modified at any time.\n - The logic is the same as standard HTML editors.\n - Handles col and rowspans.\n - PHP code is shorter, easier to read and to maintain.\n - Tables options can be reused.\n\nFor auto filling of data and such then check out http://pear.php.net/package/HTML_Table_Matrix"
+        },
+        {
+            "name": "pear-pear.php.net/PEAR",
+            "version": "1.9.4",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/PEAR-1.9.4.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.4.0.0,!=5.0.0.0,!=5.1.0.0,!=5.1.1.0,!=5.1.2.0,!=5.1.3.0,!=5.1.4.0,!=5.1.5.0",
+                "pear-pear.php.net/archive_tar": ">=1.3.7.0",
+                "pear-pear.php.net/structures_graph": ">=1.0.2.0",
+                "pear-pear.php.net/console_getopt": ">=1.2.0.0",
+                "pear-pear.php.net/xml_util": ">=1.2.0.0",
+                "ext-xml": "*",
+                "ext-pcre": "*"
+            },
+            "conflict": {
+                "pear-pear.php.net/pear_frontend_web": "<=0.4.0.0",
+                "pear-pear.php.net/pear_frontend_gtk": "<0.4.0.0"
+            },
+            "replace": {
+                "pear-pear/pear": "== 1.9.4.0",
+                "pear/pear": "== 1.9.4.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "The PEAR package contains:\n * the PEAR installer, for creating, distributing\n   and installing packages\n * the PEAR_Exception PHP5 error handling mechanism\n * the PEAR_ErrorStack advanced error handling mechanism\n * the PEAR_Error error handling mechanism\n * the OS_Guess class for retrieving info about the OS\n   where PHP is running on\n * the System class for quick handling of common operations\n   with files and directories\n * the PEAR base class\n  Features in a nutshell:\n  * full support for channels\n  * pre-download dependency validation\n  * new package.xml 2.0 format allows tremendous flexibility while maintaining BC\n  * support for optional dependency groups and limited support for sub-packaging\n  * robust dependency support\n  * full dependency validation on uninstall\n  * remote install for hosts with only ftp access - no more problems with\n    restricted host installation\n  * full support for mirroring\n  * support for bundling several packages into a single tarball\n  * support for static dependencies on a url-based package\n  * support for custom file roles and installation tasks"
+        },
+        {
+            "name": "pear-pear.php.net/Pager",
+            "version": "2.4.8",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Pager-2.4.8.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.0.0.0"
+            },
+            "replace": {
+                "pear-pear/pager": "== 2.4.8.0",
+                "pear/pager": "== 2.4.8.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "It takes an array of data as input and pages it according to various parameters.\nIt also builds links within a specified range, and allows complete customization of the output (it even works with front controllers and mod_rewrite).\nTwo operating modes available: &quot;Jumping&quot; and &quot;Sliding&quot; window style."
+        },
+        {
+            "name": "pear-pear.php.net/Structures_DataGrid",
+            "version": "0.9.3",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Structures_DataGrid-0.9.3.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.0.0.0"
+            },
+            "replace": {
+                "pear-pear/structures_datagrid": "== 0.9.3.0",
+                "pear/structures_datagrid": "== 0.9.3.0"
+            },
+            "suggest": {
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_CSV": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_RSS": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_XML": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_Array": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_DB": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_MDB2": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_DataObject": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_DBQuery": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_DBTable": ">=0.1.0.0",
+                "datasources-pear-pear.php.net/Structures_DataGrid_DataSource_PDO": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_XLS": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_XUL": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_XML": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_Smarty": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_Console": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_CSV": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_HTMLTable": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_Pager": ">=0.1.0.0",
+                "renderers-pear-pear.php.net/Structures_DataGrid_Renderer_HTMLSortForm": ">=0.1.0.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "This package provides a toolkit to generate data tables in HTML, CSV,\n Excel, XML, Smarty, and other formats.  \n It retrieves data from a variety of data sources, including SQL, CSV,\n XML, PDO, DB_DataObject, DB_Table, and others.\n It can transparently page and sort the data, through optimized database\n queries, by parsing/generating GET, POST requests and REST-like urls.\n It is designed with modularity and extensibility in mind, using drivers\n for all rendering and datasource formats."
+        },
+        {
+            "name": "pear-pear.php.net/Structures_DataGrid_DataSource_Array",
+            "version": "0.1.4",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Structures_DataGrid_DataSource_Array-0.1.4.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.2.0.0",
+                "pear-pear.php.net/structures_datagrid": ">=0.9.0.0"
+            },
+            "replace": {
+                "pear-pear/structures_datagrid_datasource_array": "== 0.1.4.0",
+                "pear/structures_datagrid_datasource_array": "== 0.1.4.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "This is a DataSource driver for Structures_DataGrid using arrays. It is a\nbase package for some other DataSource drivers like CSV or XML."
+        },
+        {
+            "name": "pear-pear.php.net/Structures_DataGrid_DataSource_DataObject",
+            "version": "0.2.1",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Structures_DataGrid_DataSource_DataObject-0.2.1.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.2.0.0",
+                "pear-pear.php.net/structures_datagrid": ">=0.9.0.0",
+                "pear-pear.php.net/db_dataobject": ">=1.8.7.0"
+            },
+            "replace": {
+                "pear-pear/structures_datagrid_datasource_dataobject": "== 0.2.1.0",
+                "pear/structures_datagrid_datasource_dataobject": "== 0.2.1.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "This is a DataSource driver for Structures_DataGrid using PEAR::DB_DataObject."
+        },
+        {
+            "name": "pear-pear.php.net/Structures_DataGrid_Renderer_HTMLTable",
+            "version": "0.1.6",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Structures_DataGrid_Renderer_HTMLTable-0.1.6.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.2.0.0",
+                "pear-pear.php.net/structures_datagrid": ">=0.9.0.0",
+                "pear-pear.php.net/structures_datagrid_renderer_pager": ">=0.1.3.0",
+                "pear-pear.php.net/html_table": ">=1.7.5.0"
+            },
+            "replace": {
+                "pear-pear/structures_datagrid_renderer_htmltable": "== 0.1.6.0",
+                "pear/structures_datagrid_renderer_htmltable": "== 0.1.6.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "This is a Renderer driver for Structures_DataGrid using PEAR::HTML_Table."
+        },
+        {
+            "name": "pear-pear.php.net/Structures_DataGrid_Renderer_Pager",
+            "version": "0.1.3",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Structures_DataGrid_Renderer_Pager-0.1.3.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0",
+                "pear-pear.php.net/structures_datagrid": ">=0.7.0.0",
+                "pear-pear.php.net/pager": ">=2.4.4.0"
+            },
+            "replace": {
+                "pear-pear/structures_datagrid_renderer_pager": "== 0.1.3.0",
+                "pear/structures_datagrid_renderer_pager": "== 0.1.3.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "This is a Renderer driver for Structures_DataGrid using PEAR::Pager."
+        },
+        {
+            "name": "pear-pear.php.net/Structures_Graph",
+            "version": "1.0.4",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/Structures_Graph-1.0.4.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.2.0.0"
+            },
+            "replace": {
+                "pear-pear/structures_graph": "== 1.0.4.0",
+                "pear/structures_graph": "== 1.0.4.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "Structures_Graph is a package for creating and manipulating graph datastructures. It allows building of directed\nand undirected graphs, with data and metadata stored in nodes. The library provides functions for graph traversing\nas well as for characteristic extraction from the graph topology."
+        },
+        {
+            "name": "pear-pear.php.net/XML_Util",
+            "version": "1.2.1",
+            "dist": {
+                "type": "file",
+                "url": "http://pear.php.net/get/XML_Util-1.2.1.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=4.3.0.0",
+                "ext-pcre": "*"
+            },
+            "replace": {
+                "pear-pear/xml_util": "== 1.2.1.0",
+                "pear/xml_util": "== 1.2.1.0"
+            },
+            "type": "pear-library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "include-path": [
+                "/"
+            ],
+            "description": "Selection of methods that are often needed when working with XML documents.  Functionality includes creating of attribute lists from arrays, creation of tags, validation of XML names and more."
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ]
+}

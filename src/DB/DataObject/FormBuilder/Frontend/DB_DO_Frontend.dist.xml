@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE frontend
+    SYSTEM "http://cms.palustris.dk/MLJ_DB_DataObject_FormBuilder_Frontend-v1.dtd">
+<frontend>
+    <defaults displayName="Alle tabeller">
+        <description>Vælg den tabel du vil arbejde med</description>
+        <recordsPerPage>25</recordsPerPage>
+        <allowDelete value="1" />
+        <allowAdd value="1" />
+        <labels>
+            <label name="addNew">Tilføj ny post</label>
+            <label name="delete">Slet</label>
+            <label name="edit">Rediger</label>
+            <label name="deleteConfirmYes">Ja</label>
+            <label name="deleteConfirmNo">Nej</label>
+            <label name="tableColumn">Tabel</label>
+            <label name="tableDescription">Beskrivelse</label>
+            <label name="cancelSubmit">Afbryd</label>
+            <label name="recordsPrPage">Vis pr. side</label>
+            <label name="recordsPrPageSubmit">Brug!</label>
+        </labels>
+        <confirmDelete value="1" />
+        <deleteMessage>Er du sikker på du vil slette dette?</deleteMessage>
+        <css filename="/main.css" />
+        <javascriptPath path="/jscripts/" />
+        <cssPath path="/css/" />
+        <fbOptions>
+            <fbOption name="requiredRuleMessage">%s - Skal udfyldes</fbOption>
+            <requiredNote>Felter med * skal udfyldes</requiredNote>
+        </fbOptions>
+
+        <plugins policy="enabled">
+            <plugin name="tinyMCE" policy="disabled">
+                <!-- These are the options you would normally pass to tinymce.init() -->
+                <key name="options">
+                    <key name="content_css">/css/main.css</key>
+                </key>
+                <!-- Should the options here be merged with the default options of the plugin?
+                     If false, only the options set for the plugin will be used. -->
+                <key name="mergeOptions">1</key>
+            </plugin>
+
+            <plugin name="HtmlDefaultAttributes">
+                <key name="inputLength">80</key>
+                <key name="textareaRows">20</key>
+                <key name="textareaCols">60</key>
+            </plugin>
+
+        </plugins>
+
+        <!-- This is where options for the datagrid renderer is set -->
+        <renderer>
+            <!-- These are attributes to put inside the table-tag of the datagrid. -->
+            <rendererAttribute name="class">datagrid</rendererAttribute>
+            <rendererAttribute name="style">border: 5px solid black;</rendererAttribute>
+
+            <!-- This is options passed to the datagrid-renderer.
+                 The renderer used is Structures_DataGrid_Renderer_HTMLTable
+                 See the PEAR-manual on the renderer for which options it can use
+            -->
+            <rendererOption name="sortIconASC">--hest--</rendererOption>
+            <!-- If a renderer-option is an array, use like this -->
+            <rendererOption name="evenRowAttributes">
+                <key name="class">oddRow</key>
+            </rendererOption>
+
+        </renderer>
+
+    </defaults>
+
+    <tables>
+        <table>
+            <name>tbl_kategorier</name>
+            <displayName>Kategorier</displayName>
+            <description>Kategorier som billeder kan placeres i.</description>
+            <recordsPerPage>25</recordsPerPage>
+            <allowDelete value="1" />
+            <allowAdd value="1" />
+            <labels>
+                <label name="addNew">Tilføj ny kategori</label>
+                <label name="delete">Slet</label>
+                <label name="edit">Rediger</label>
+                <label name="deleteConfirmYes">Ja</label>
+                <label name="deleteConfirmNo">Nej</label>
+            </labels>
+            <confirmDelete value="1" />
+            <deleteMessage>Er du sikker på du vil slette dette?</deleteMessage>
+            <listColumns>
+                <column displayName="Kategorinavn">navn</column>
+            </listColumns>
+        </table>
+
+        <table>
+            <name>tbl_billedinfo</name>
+            <displayName>Billeder</displayName>
+            <description>Her er billederne.</description>
+            <recordsPerPage>25</recordsPerPage>
+            <allowDelete value="1" />
+            <allowAdd value="1" />
+            <listColumns>
+                <column displayName="pk" orderby="desc">id</column>
+                <column>titel</column>
+                <column displayName="Billede" type="raw" allowOrderBy="0">image_tag</column>
+            </listColumns>
+            <fbOptions>
+                <fbOption name="requiredRuleMessage">%s - Skal udfyldes</fbOption>
+            </fbOptions>
+        </table>
+
+    </tables>
+
+</frontend>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE frontend
+    SYSTEM "http://pear.quercus.palustris.dk/dtd/DB_DataObject_FormBuilder_Frontend-v1.0.dtd">
+<frontend>
+    <defaults displayName="All tables">
+        <description>Choose table to list</description>
+        <recordsPerPage>25</recordsPerPage>
+        <allowDelete value="1" />
+        <allowAdd value="1" />
+        <labels>
+            <label name="addNew">Add new record</label>
+            <label name="delete">Delete</label>
+            <label name="edit">Edit</label>
+            <label name="deleteConfirmYes">Yes</label>
+            <label name="deleteConfirmNo">No</label>
+            <label name="tableColumn">Table</label>
+            <label name="tableDescription">Description</label>
+            <label name="cancelSubmit">Abort</label>
+            <label name="recordsPrPage">Show pr. page</label>
+            <label name="recordsPrPageSubmit">Use!</label>
+        </labels>
+        <confirmDelete value="1" />
+        <deleteMessage>Sure you want to delete this?</deleteMessage>
+        <fbOptions>
+            <fbOption name="requiredRuleMessage">%s - Required field</fbOption>
+            <requiredNote>Fields marked with * are required</requiredNote>
+        </fbOptions>
+
+        <plugins policy="disabled">
+
+        </plugins>
+
+    </defaults>
+
+    <tables>
+        <table>
+            <name>categories</name>
+            <displayName>Categories</displayName>
+            <description>Categories that images can belong to</description>
+            <labels>
+                <label name="addNew">Add category</label>
+            </labels>
+            <listColumns>
+                <column displayName="Name">name</column>
+            </listColumns>
+        </table>
+
+        <table>
+            <name>pictures</name>
+            <displayName>Pictures</displayName>
+            <description>Pictures in the system.</description>
+            <listColumns>
+                <column displayName="pk" orderby="desc">id</column>
+                <column>title</column>
+                <column displayName="x">width</column>
+                <column displayName="y">height</column>
+            </listColumns>
+        </table>
+
+    </tables>
+
+</frontend>

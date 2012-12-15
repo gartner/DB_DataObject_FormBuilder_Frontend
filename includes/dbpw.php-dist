@@ -1,0 +1,27 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Mads
+ * Date: 04-12-12
+ * Time: 07:48
+ *
+ * This is where the database connection settings are stored.
+ * The 'dbname' can be anything, it is used only internal to DB_DataObject to
+ * determine which database the dataobject comes from
+ * You can create more blocks like this, to get dataobject from more than one
+ * database
+ */
+
+$db['mysql']['user']     = '';
+$db['mysql']['password'] = '';
+$db['mysql']['type']     = 'mysqli';
+$db['mysql']['database'] = '';
+$db['mysql']['host']     = '';
+
+/*
+$db['seconddbname']['user']     = '';
+$db['seconddbname']['password'] = '';
+$db['seconddbname']['type']     = '';
+$db['seconddbname']['database'] = '';
+$db['seconddbname']['host']     = '';
+*/

@@ -1,0 +1,92 @@
+/*
+ * Styles for the datagrid
+ */
+
+.datagrid {
+   background-color: #ccccff;
+   border: 2px solid #999999;
+   border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #444444;
+}
+.datagrid td, .datagrid th {
+   border: 1px solid #999999;
+   padding: 2px 4px;
+}
+.datagrid th {
+    border-bottom: 2px solid black;
+    text-align: left;
+}
+#content .datagrid a {
+    color: #440066;
+    font-weight: bold;
+}
+#content .datagrid a:hover {
+    background-color: #440066;
+    color: #807F00;
+}
+.datagrid th, .datagrid th a {
+   background-color: #006600;
+   color: #ffffff;
+   padding-bottom: 3px;
+}
+.datagrid th a {
+	text-decoration: none;
+}
+.datagrid tr td:nth-child(2),
+.datagrid tr td:nth-child(1) {
+    width: 100px;
+}
+/*
+.datagrid td a {
+   background-color: #ccccff;
+}
+*/
+.datagrid tr.oddRow {
+   background-color: #E0EEB1;
+}
+.datagrid tr.evenRow {
+   background-color: #ECEEB1;
+}
+
+.formError {
+    border: 3px solid #f00;
+    color: #f00;
+    background-color: #fdd;
+    padding: 2px 5px;
+}
+.formError em {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+table.form {
+    width: 100%;
+    border: none;
+}
+table.form>tbody>tr>td:first-child {
+    width: 12%;
+}
+
+/*
+ * Styles for the plugin filterForm
+ */
+#filterFormDiv {
+    border: 1px solid #555555;
+    background-color: #dddddd;
+    padding: 7px;
+}
+#filterFormDiv h5 {
+    font-weight: bold;
+    margin: 0;
+    color: #555555;
+}
+#filterFormDiv.filterFormDivOn {
+    background-color: #E0EEB1;
+}
+#filterFormDiv input {
+    border-color: #006600;
+
+}
