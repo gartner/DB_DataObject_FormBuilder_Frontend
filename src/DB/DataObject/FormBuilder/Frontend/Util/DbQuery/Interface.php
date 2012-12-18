@@ -23,7 +23,7 @@
  * @version  Release: SVN: $Id: Interface.php 462 2012-11-17 20:38:11Z mlj $
  * @link     http://www.gartneriet.dk/
  */
-interface DB_DataObject_FormBuilder_Frontend_Util_DB_Interface
+interface DB_DataObject_FormBuilder_Frontend_Util_DbQuery_Interface
 {
 
     /**
@@ -37,7 +37,7 @@ interface DB_DataObject_FormBuilder_Frontend_Util_DB_Interface
      *		)
      *	)
      */
-    public function getColumnInfo();
+    public function getColumnInfo(DB_DataObject $do);
 
 }
 
