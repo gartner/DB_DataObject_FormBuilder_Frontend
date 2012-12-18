@@ -23,7 +23,7 @@ require_once 'top.php';
             <dt><a href="plugins/">Using plugins</a></dt>
             <dd>Examples on using the plugins</dd>
 
-            <dt><a hef="advanced/">Advanced</a></dt>
+            <dt><a href="advanced/">Advanced</a></dt>
             <dd>Some more advanced examples</dd>
         </dl>
 
