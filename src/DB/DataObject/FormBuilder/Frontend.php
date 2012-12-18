@@ -1577,24 +1577,41 @@ class DB_DataObject_FormBuilder_Frontend
     /**
      * Read in array of options from an xml-node
      *
-     * The node should be a <key>, and if it has other <keys> inside it,
+     * The node should be a <option>, and if it has other <options> inside it,
      * it will recursively call itself, creating an array out of these keys.
      *
-     * @param SimpleXMLElement $node The node to read.
+     * @param SimpleXMLElement $node    The node to read.
+     * @param string           $keyName Read in an <option> or <key>-section?
+     *                                  (<key> is supported for bc-reasons)
      *
-     * @return array|string The read keys.
+     * @return array|string The read options.
+     *
+     * @throws DB_DataObject_FormBuilder_Frontend_Exception If attemting to read an
+     *                                                      unsupported section
      */
-    protected function readConfigKeys(SimpleXMLElement $node)
+    protected function readConfigKeys(SimpleXMLElement $node, $keyName="option")
     {
+        $keyName = strtolower($keyName);
+        if ($keyName !== 'option' && $keyName !== 'key') {
+            require_once 'DB_DataObject_FormBuilder_Frontend_Exception.php';
+            throw new DB_DataObject_FormBuilder_Frontend_Exception(
+                "Cannot read configOptions of type: $keyName"
+            );
+        }
+
+        if ('option' === $keyName) {
+            $keys = $this->readConfigKeys($node, 'key');
+        }
+
         $rv = array();
 
-        if (isset($node->key)) {
+        if (isset($node->{$keyName})) {
             foreach ($node as $k) {
-                if (isset($k->key)) {
+                if (isset($k->{$keyName})) {
                     if (empty($k['name'])) {
-                        $rv[] = $this->readConfigKeys($k);
+                        $rv[] = $this->readConfigKeys($k, $keyName);
                     } else {
-                        $rv[(string) $k['name']] = $this->readConfigKeys($k);
+                        $rv[(string) $k['name']] = $this->readConfigKeys($k, $keyName);
                     }
                 } else {
                     if (empty($k['name'])) {
@@ -1607,6 +1624,11 @@ class DB_DataObject_FormBuilder_Frontend
         } else {
             $rv = (string) $node;
         }
+
+        if (is_array($rv) && isset($keys) && is_array($keys)) {
+            $rv = array_merge_recursive($keys, $rv);
+        }
+
         return $rv;
     }
 
