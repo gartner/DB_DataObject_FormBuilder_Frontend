@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <!DOCTYPE frontend
-    SYSTEM "http://cms.palustris.dk/MLJ_DB_DataObject_FormBuilder_Frontend-v1.dtd">
+    SYSTEM "http://pear.quercus.palustris.dk/dtd/DB_DataObject_FormBuilder_Frontend-v1.0.dtd">
 <frontend>
     <defaults displayName="Alle tabeller">
         <description>Vælg den tabel du vil arbejde med</description>
@@ -29,7 +29,7 @@
             <requiredNote>Felter med * skal udfyldes</requiredNote>
         </fbOptions>
 
-        <plugins policy="enabled">
+        <plugins policy="disabled">
             <plugin name="tinyMCE" policy="disabled">
                 <!-- These are the options you would normally pass to tinymce.init() -->
                 <key name="options">
@@ -40,7 +40,7 @@
                 <key name="mergeOptions">1</key>
             </plugin>
 
-            <plugin name="HtmlDefaultAttributes">
+            <plugin name="HtmlDefaultAttributes" policy="enabled">
                 <key name="inputLength">80</key>
                 <key name="textareaRows">20</key>
                 <key name="textareaCols">60</key>
@@ -49,22 +49,22 @@
         </plugins>
 
         <!-- This is where options for the datagrid renderer is set -->
-        <renderer>
+        <dataGridRenderer>
             <!-- These are attributes to put inside the table-tag of the datagrid. -->
-            <rendererAttribute name="class">datagrid</rendererAttribute>
-            <rendererAttribute name="style">border: 5px solid black;</rendererAttribute>
+            <dataGridRendererAttribute name="class">datagrid</dataGridRendererAttribute>
+            <dataGridRendererAttribute name="style">border: 5px solid black;</dataGridRendererAttribute>
 
-            <!-- This is options passed to the datagrid-renderer.
-                 The renderer used is Structures_DataGrid_Renderer_HTMLTable
-                 See the PEAR-manual on the renderer for which options it can use
+            <!-- This is options passed to the datagrid-dataGridRenderer.
+                 The dataGridRenderer used is Structures_DataGrid_dataGridRenderer_HTMLTable
+                 See the PEAR-manual on the dataGridRenderer for which options it can use
             -->
-            <rendererOption name="sortIconASC">--hest--</rendererOption>
-            <!-- If a renderer-option is an array, use like this -->
-            <rendererOption name="evenRowAttributes">
+            <dataGridRendererOption name="sortIconASC">--hest--</dataGridRendererOption>
+            <!-- If a dataGridRenderer-option is an array, use like this -->
+            <dataGridRendererOption name="evenRowAttributes">
                 <key name="class">oddRow</key>
-            </rendererOption>
+            </dataGridRendererOption>
 
-        </renderer>
+        </dataGridRenderer>
 
     </defaults>
 
