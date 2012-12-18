@@ -56,8 +56,10 @@ class DB_DataObject_FormBuilder_Frontend_Util_DbQuery
         $class = 'DB_DataObject_FormBuilder_Frontend_Util_DbQuery_' . $dbDriver;
         if (!class_exists($class)) {
             // Autoload class
-            $file = dirname(__FILE__) . '/' . $dbDriver . '/' . $dbStyle . '.php';
-            if (!file_exists($file)) {
+            $file = str_replace('_', DIRECTORY_SEPARATOR, $class) . '.php';
+
+            $fileExists = @fopen($file, 'r', true);
+            if (!$fileExists) {
                 include_once 'DB/DataObject/FormBuilder/Frontend/Exception.php';
                 throw new DB_DataObject_FormBuilder_Frontend_Exception(
                     "DB_DataObject_FormBuilder_Frontend_Util_DbQuery::"
@@ -65,6 +67,7 @@ class DB_DataObject_FormBuilder_Frontend_Util_DbQuery
                     . "(tried to autoload $file)"
                 );
             } else {
+                fclose($fileExists);
                 include_once $file;
             }
         }
