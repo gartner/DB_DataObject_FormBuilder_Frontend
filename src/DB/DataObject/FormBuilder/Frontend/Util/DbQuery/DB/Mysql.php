@@ -27,7 +27,7 @@ require_once 'DB/DataObject/FormBuilder/Frontend/Util/DbQuery/Interface.php';
  * @link     http://www.gartneriet.dk/
  */
 class DB_DataObject_FormBuilder_Frontend_Util_DbQuery_DB_Mysql
-   implements DB_DataObject_FormBuilder_Frontend_Util_DbQuery_DB_Interface
+   implements DB_DataObject_FormBuilder_Frontend_Util_DbQuery_Interface
 {
 
     /**
