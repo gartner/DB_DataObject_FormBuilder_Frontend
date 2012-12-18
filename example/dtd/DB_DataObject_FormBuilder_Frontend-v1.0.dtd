@@ -43,12 +43,17 @@ name                    CDATA   #REQUIRED>
 Options passed to the renderer. The default renderer is Structures_DataGrid_Renderer_HTMLTable
 The name-attribute is used as the key in the array passed as rendererOptions
 -->
-<!ELEMENT dataGridRendererOption    (#PCDATA|key)*>
+<!ELEMENT dataGridRendererOption    (#PCDATA|option|key)*>
 <!ATTLIST dataGridRendererOption
 name                    CDATA   #REQUIRED>
 
+<!-- key element is deprecated - use option instead -->
 <!ELEMENT key           (#PCDATA|key)*>
 <!ATTLIST key
+name                    CDATA   #IMPLIED>
+
+<!ELEMENT option        (#PCDATA|option)*>
+<!ATTLIST option
 name                    CDATA   #IMPLIED>
 
 <!ELEMENT table			(name, listName?, displayName, description, recordsPerPage?, allowDelete?,
@@ -62,7 +67,7 @@ enabled                 (no|yes|0|1)   "yes">
 <!ATTLIST plugins
 policy                  (0|1|disabled|enabled|off|on)   #IMPLIED>
 
-<!ELEMENT plugin        (#PCDATA|key)*>
+<!ELEMENT plugin        (#PCDATA|key|option)*>
 <!ATTLIST plugin
 policy                  (0|1|disabled|enabled|off|on)   #IMPLIED
 name                    CDATA       #REQUIRED>
