@@ -67,10 +67,16 @@ enabled                 (no|yes|0|1)   "yes">
 <!ATTLIST plugins
 policy                  (0|1|disabled|enabled|off|on)   #IMPLIED>
 
-<!ELEMENT plugin        (#PCDATA|key|option)*>
+<!ELEMENT plugin        (#PCDATA|pluginLoader|key|option)*>
 <!ATTLIST plugin
 policy                  (0|1|disabled|enabled|off|on)   #IMPLIED
 name                    CDATA       #REQUIRED>
+
+<!ELEMENT pluginLoader              EMPTY>
+<!ATTLIST pluginLoader
+path                    CDATA       #REQUIRED
+className               CDATA       #REQUIRED>
+
 
 <!ELEMENT css                       EMPTY>
 <!ATTLIST css

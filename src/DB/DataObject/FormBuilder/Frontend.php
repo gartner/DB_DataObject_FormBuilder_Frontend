@@ -101,6 +101,10 @@ class DB_DataObject_FormBuilder_Frontend
      * The following keys in the content are used:
      *  __options   => Options for the plugin
      *  __policy    => PLUGIN_ENABLE|PLUGIN_DISABLE - should the plugin be used?
+     *  __loader    => array(
+     *                    'className' => Name of the plugin-class
+     *                    'path'      => path/filename to the file where the class is
+     *                 )
      *  __instance  => Instance of the plugin-class
      *  __className => Classname of this plugin.
      *
@@ -1276,11 +1280,14 @@ class DB_DataObject_FormBuilder_Frontend
         $this->loadPlugins();
 
         $rv = array();
+        
         foreach ($this->plugins as $pluginName => $plugin) {
-            $instance = $plugin['__instance'];
-            if ($instance instanceof DB_DataObject_FormBuilder_Frontend_Plugin) {
 
-                if ($plugin['__policy'] == self::PLUGIN_ENABLE) {
+            if ($plugin['__policy'] == self::PLUGIN_ENABLE) {
+
+                $instance = $plugin['__instance'];
+                if ($instance instanceof DB_DataObject_FormBuilder_Frontend_Plugin) {
+
                     switch ($method) {
                     // This is like FormBuilder::preGenerateForm
                     case 'preGenerateForm':
@@ -1347,13 +1354,13 @@ class DB_DataObject_FormBuilder_Frontend
                         );
                     }
                 } else {
-                    // debug: Plugin $pluginName is disabled
+                    include_once 'DB/DataObject/FormBuilder/Frontend/Exception.php';
+                    throw new DB_DataObject_FormBuilder_Frontend_Exception(
+                        "Plugin: '{$pluginName}' is not a DB_DataObject_FormBuilder_Frontend_Plugin"
+                    );
                 }
             } else {
-                include_once 'DB/DataObject/FormBuilder/Frontend/Exception.php';
-                throw new DB_DataObject_FormBuilder_Frontend_Exception(
-                    "Plugin: '{$pluginName}' is not a DB_DataObject_FormBuilder_Frontend_Plugin"
-                );
+                // debug: Plugin $pluginName is disabled
             }
         }
 
@@ -1531,24 +1538,41 @@ class DB_DataObject_FormBuilder_Frontend
                     self::PLUGIN_DISABLE
                 );
             }
+
             if (isset($config[0]->plugins->plugin)) {
                 foreach ($config[0]->plugins->plugin as $p) {
+                    $pluginName = (string) $p['name'];
                     if (isset($p['policy'])) {
-                        $this->plugins[(string) $p['name']]['__policy']
+                        $this->plugins[$pluginName]['__policy']
                             = $this->readConfigFlag(
                                 (string) $p['policy'],
                                 self::PLUGIN_ENABLE,
                                 self::PLUGIN_DISABLE
                             );
                     } else {
-                        $this->plugins[(string) $p['name']]['__policy']
+                        // Use default plugin policy
+                        $this->plugins[$pluginName]['__policy']
                             = $this->pluginPolicy;
                     }
-                    if (isset($p->key)) {
-                        $this->plugins[(string) $p['name']]['__options']
+                    // Where is plugin located?
+                    $this->plugins[$pluginName]['__loader'] =
+                        array(
+                            'className' => 'DB_DataObject_FormBuilder_Frontend_Plugin_' . $pluginName,
+                            'path'      => 'DB/DataObject/FormBuilder/Frontend/Plugin',
+                        );
+                    if (isset($p->pluginLoader)) {
+                        $this->plugins[$pluginName]['__loader'] =
+                            array(
+                                'className' => $p->pluginLoader['className'],
+                                'path'      => $p->pluginLoader['path'],
+                            );
+                    }
+
+                    if (isset($p->option) || isset($p->key)) {
+                        $this->plugins[$pluginName]['__options']
                             = (array) $this->readConfigKeys($p);
                     } else {
-                        $this->plugins[(string) $p['name']]['__options']
+                        $this->plugins[$pluginName]['__options']
                             = array();
                     }
                 }
@@ -1567,6 +1591,8 @@ class DB_DataObject_FormBuilder_Frontend
                         = $this->readConfigKeys($o);
                 }
             }
+
+            // TODO: formErrorTemplate should be read from config
 
         }
 
@@ -1679,7 +1705,6 @@ class DB_DataObject_FormBuilder_Frontend
     }
 
 
-    // TODO: mayby plugins should first be loaded when called by callPlugins()?
     /**
     * Load plugins and make a new instance of them
     *
@@ -1688,38 +1713,50 @@ class DB_DataObject_FormBuilder_Frontend
     protected function loadPlugins()
     {
         if (! $this->pluginsLoaded) {
-            // Load all plugins in plugin-dir
-            $path = dirname(__FILE__) . '/Frontend/Plugin/';
-            $dir  = new DirectoryIterator($path);
-            foreach ($dir as $file) {
-                if ($file->isFile()
-                    && strtolower(substr($file->getFilename(), -4, 4)) == '.php'
-                ) {
-
-                    // Load plugin
-                    $pluginName = substr($file->getFilename(), 0, -4);
-                    include_once $file->getPathname();
-                    //$this->_loadedPlugins[] = $pluginName;
-                    $plugin = 'DB_DataObject_FormBuilder_Frontend_Plugin_';
-                    $plugin .= $pluginName;
-
-                    $this->plugins[$pluginName]['__instance']
-                        = new $plugin($this);
-                    $this->plugins[$pluginName]['__className'] = $plugin;
-                    // Make sure that the policy-flag is set on all plugins.
-                    if (!isset($this->plugins[$pluginName]['__policy'])) {
-                        $this->plugins[$pluginName]['__policy']
-                            = $this->pluginPolicy;
+            if (self::PLUGIN_ENABLE === $this->pluginPolicy) {
+                // Scan plugin-directory to add all the default plugins
+                // Unless they are disabled
+                $path = dirname(__FILE__) . '/Frontend/Plugin/';
+                $dir  = new DirectoryIterator($path);
+                foreach ($dir as $file) {
+                    if ($file->isFile()
+                        && strtolower(substr($file->getFilename(), -4, 4)) == '.php'
+                    ) {
+                        $pluginName = substr($file->getFilename(), 0, -4);
+                        if (!isset($this->plugins[$pluginName])) {
+                            $this->plugins[$pluginName]['__loader'] = array(
+                                'className' =>
+                                    "DB_DataObject_FormBuilder_Frontend_Plugin_${pluginName}",
+                                'path'      =>
+                                    "DB/DataObject/FormBuilder/Frontend/Plugin/{$pluginName}.php",
+                            );
+                        }
                     }
-                    // Set options for the plugin.
-                    $pluginOptions = $this->getPluginOptions($pluginName);
-                    $this->plugins[$pluginName]['__instance']
-                        ->setOptions($pluginOptions);
                 }
             }
-
-            $this->pluginsLoaded = true;
         }
+
+        // Go through $this->plugins, see if they are loaded/instantiated
+        foreach ($this->plugins as $name => $plugin) {
+            if (self::PLUGIN_ENABLE === $plugin['__policy']) {
+
+                if (! class_exists($plugin['__loader']['className'])) {
+                    $pluginFile = rtrim($plugin['__loader']['path'], DIRECTORY_SEPARATOR);
+                    $pluginFile .= DIRECTORY_SEPARATOR . $name . '.php';
+                    include_once $pluginFile;
+                }
+                $class = $plugin['__loader']['className'];
+                $this->plugins[$name]['__instance'] = new $class($this);
+                $this->plugins[$name]['__className'] = $class;
+
+                // Set options for the plugin.
+                $pluginOptions = $this->getPluginOptions($name);
+                $this->plugins[$name]['__instance']->setOptions($pluginOptions);
+
+            }
+        }
+
+        $this->pluginsLoaded = true;
 
         return $this;
     }
