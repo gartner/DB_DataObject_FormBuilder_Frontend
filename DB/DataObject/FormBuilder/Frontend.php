@@ -1625,8 +1625,12 @@ class DB_DataObject_FormBuilder_Frontend
             );
         }
 
+        // For BC with the <key>-element
         if ('option' === $keyName) {
             $keys = $this->readConfigKeys($node, 'key');
+            if (!isset($node->option)) {
+                return $keys;
+            }
         }
 
         $rv = array();
@@ -1713,6 +1717,7 @@ class DB_DataObject_FormBuilder_Frontend
     protected function loadPlugins()
     {
         if (! $this->pluginsLoaded) {
+
             if (self::PLUGIN_ENABLE === $this->pluginPolicy) {
                 // Scan plugin-directory to add all the default plugins
                 // Unless they are disabled
@@ -1730,33 +1735,34 @@ class DB_DataObject_FormBuilder_Frontend
                                 'path'      =>
                                     "DB/DataObject/FormBuilder/Frontend/Plugin/{$pluginName}.php",
                             );
+                            $this->plugins[$pluginName]['__policy'] = $this->pluginPolicy;
                         }
                     }
                 }
             }
-        }
 
-        // Go through $this->plugins, see if they are loaded/instantiated
-        foreach ($this->plugins as $name => $plugin) {
-            if (self::PLUGIN_ENABLE === $plugin['__policy']) {
+            // Go through $this->plugins, see if they are loaded/instantiated
+            foreach ($this->plugins as $name => $plugin) {
+                if (self::PLUGIN_ENABLE === $plugin['__policy']) {
 
-                if (! class_exists($plugin['__loader']['className'])) {
-                    $pluginFile = rtrim($plugin['__loader']['path'], DIRECTORY_SEPARATOR);
-                    $pluginFile .= DIRECTORY_SEPARATOR . $name . '.php';
-                    include_once $pluginFile;
+                    if (! class_exists($plugin['__loader']['className'])) {
+                        $pluginFile = rtrim($plugin['__loader']['path'], DIRECTORY_SEPARATOR);
+                        $pluginFile .= DIRECTORY_SEPARATOR . $name . '.php';
+                        include_once $pluginFile;
+                    }
+                    $class = $plugin['__loader']['className'];
+                    $this->plugins[$name]['__instance'] = new $class($this);
+                    $this->plugins[$name]['__className'] = $class;
+
+                    // Set options for the plugin.
+                    $pluginOptions = $this->getPluginOptions($name);
+                    $this->plugins[$name]['__instance']->setOptions($pluginOptions);
+
                 }
-                $class = $plugin['__loader']['className'];
-                $this->plugins[$name]['__instance'] = new $class($this);
-                $this->plugins[$name]['__className'] = $class;
-
-                // Set options for the plugin.
-                $pluginOptions = $this->getPluginOptions($name);
-                $this->plugins[$name]['__instance']->setOptions($pluginOptions);
-
             }
-        }
 
-        $this->pluginsLoaded = true;
+            $this->pluginsLoaded = true;
+        }
 
         return $this;
     }
