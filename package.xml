@@ -1,33 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
- <name>PEAR2_DB_DataObject_FormBuilder_Frontend</name>
- <channel>pear2.php.net</channel>
- <summary>Package PEAR2_DB_DataObject_FormBuilder_Frontend summary.\n\n&quot; . &quot;Package detailed description here (found in README)</summary>
- <description/>
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+ <name>DB_DataObject_FormBuilder_Frontend</name>
+ <channel>pear.php.net</channel>
+ <summary>Builds frontends for databases, using not much more than a configfile.</summary>
+ <description>Build frontends with just a few lines of code and a configfile.</description>
  <lead>
-  <name>Your Name</name>
-  <user>handle</user>
-  <email>handle@php.net</email>
+  <name>Mads Lie Jensen</name>
+  <user>madsliejensen</user>
+  <email>php@gartneriet.dk</email>
   <active>yes</active>
  </lead>
- <date>2012-11-20</date>
- <time>16:47:13</time>
+ <date>2012-12-22</date>
+ <time>09:47:22</time>
  <version>
-  <release>0.1.0</release>
-  <api>0.1.0</api>
+  <release>0.5.0</release>
+  <api>0.5.0</api>
  </version>
  <stability>
   <release>alpha</release>
   <api>alpha</api>
  </stability>
- <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
- <notes>Package  PEAR2_DB_DataObject_FormBuilder_Frontend release notes for version 0.1.0.
-
-Package PEAR2_DB_DataObject_FormBuilder_Frontend API release notes for version 0.1.0.</notes>
+ <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+ <notes>
+-
+ </notes>
  <contents>
-  <dir name="/">
-   <file role="php" name="php/PEAR2/DB/DataObject/FormBuilder/Frontend/Main.php"/>
-  </dir>
+  <dir baseinstalldir="/" name="/">
+   <dir name="DB">
+    <dir name="DataObject">
+     <dir name="FormBuilder">
+      <dir name="Frontend">
+       <dir name="Column">
+        <file name="Boolean.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Callback.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Date.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Dbdocallback.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Hideshow.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Inflector.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="OptionsInterface.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Raw.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Standard.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+       </dir> <!-- /DB/DataObject/FormBuilder/Frontend/Column -->
+       <dir name="Hooks">
+        <file name="Access.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Delete.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Edit.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Filter.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Scripts.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+       </dir> <!-- /DB/DataObject/FormBuilder/Frontend/Hooks -->
+       <dir name="Plugin">
+        <file name="DateToDateselect.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="DeleteFromListview.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="FilterList.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="HtmlDefaultAttributes.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Redirect.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="tinyMCE.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Validator.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+        <file name="Xhtml.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+       </dir> <!-- /DB/DataObject/FormBuilder/Frontend/Plugin -->
+       <dir name="Util">
+        <dir name="DbQuery">
+         <dir name="DB">
+          <file name="Mysql.php" role="php">
+           <tasks:replace from="@package-version@" to="version" type="package-info" />
+          </file>
+          <file name="Mysqli.php" role="php">
+           <tasks:replace from="@package-version@" to="version" type="package-info" />
+          </file>
+          <file name="Pgsql.php" role="php">
+           <tasks:replace from="@package-version@" to="version" type="package-info" />
+          </file>
+         </dir> <!-- /DB/DataObject/FormBuilder/Frontend/Util/DbQuery/DB -->
+         <file name="DB.php" role="php">
+          <tasks:replace from="@package-version@" to="version" type="package-info" />
+         </file>
+         <file name="Interface.php" role="php">
+          <tasks:replace from="@package-version@" to="version" type="package-info" />
+         </file>
+        </dir> <!-- /DB/DataObject/FormBuilder/Frontend/Util/DbQuery -->
+        <file name="DbQuery.php" role="php">
+         <tasks:replace from="@package-version@" to="version" type="package-info" />
+        </file>
+       </dir> <!-- /DB/DataObject/FormBuilder/Frontend/Util -->
+       <file name="Column.php" role="php">
+        <tasks:replace from="@package-version@" to="version" type="package-info" />
+       </file>
+       <file name="DB_DO_Frontend.dist.xml" role="data">
+        <tasks:replace from="@package-version@" to="version" type="package-info" />
+       </file>
+       <file name="DB_DO_Frontend_Simple-v0.6.dtd" role="data">
+        <tasks:replace from="@package-version@" to="version" type="package-info" />
+       </file>
+       <file name="Exception.php" role="php">
+        <tasks:replace from="@package-version@" to="version" type="package-info" />
+       </file>
+       <file name="Plugin.php" role="php">
+        <tasks:replace from="@package-version@" to="version" type="package-info" />
+       </file>
+       <file name="Renderer.php" role="php">
+        <tasks:replace from="@package-version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /DB/DataObject/FormBuilder/Frontend -->
+      <file name="Frontend.php" role="php">
+       <tasks:replace from="@package-version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /DB/DataObject/FormBuilder -->
+    </dir> <!-- /DB/DataObject -->
+   </dir> <!-- /DB -->
+   <dir name="example">
+    <dir name="dtd">
+     <file name="DB_DataObject_FormBuilder_Frontend-v1.0.dtd" role="data">
+      <tasks:replace from="@package-version@" to="version" type="package-info" />
+     </file>
+    </dir> <!-- /example/dtd -->
+   </dir> <!-- /example -->
+  </dir> <!-- / -->
  </contents>
  <dependencies>
   <required>
@@ -35,13 +166,66 @@ Package PEAR2_DB_DataObject_FormBuilder_Frontend API release notes for version 0
     <min>5.2.0</min>
    </php>
    <pearinstaller>
-    <min>1.4.8</min>
+    <min>1.9.4</min>
    </pearinstaller>
+   <package>
+    <name>DB_DataObject</name>
+    <channel>pear.php.net</channel>
+    <min>1.9</min>
+   </package>
+   <package>
+    <name>Structures_DataGrid</name>
+    <channel>pear.php.net</channel>
+    <min>0.9.3</min>
+   </package>
+   <package>
+    <name>DB_DataObject_FormBuilder</name>
+    <channel>pear.php.net</channel>
+    <min>1.0.2</min>
+   </package>
+   <package>
+    <name>Structures_DataGrid_DataSource_DataObject</name>
+    <channel>pear.php.net</channel>
+    <min>0.2.2dev1</min>
+   </package>
+   <package>
+    <name>Structures_DataGrid_DataSource_Array</name>
+    <channel>pear.php.net</channel>
+    <min>0.2.0dev1</min>
+   </package>
+   <package>
+    <name>Structures_DataGrid_Renderer_Pager</name>
+    <channel>pear.php.net</channel>
+    <min>0.1.3</min>
+   </package>
+   <package>
+    <name>Structures_DataGrid_Renderer_HTMLTable</name>
+    <channel>pear.php.net</channel>
+    <min>0.1.6</min>
+   </package>
+   <package>
+    <name>Pager</name>
+    <channel>pear.php.net</channel>
+    <min>2.4.8</min>
+   </package>
   </required>
  </dependencies>
- <phprelease>
-  <filelist>
-   <install name="php/PEAR2/DB/DataObject/FormBuilder/Frontend/Main.php" as="PEAR2/DB/DataObject/FormBuilder/Frontend/Main.php"/>
-  </filelist>
- </phprelease>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.5.0</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-12-22</date>
+   <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+   <notes>
+-
+   </notes>
+  </release>
+ </changelog>
 </package>

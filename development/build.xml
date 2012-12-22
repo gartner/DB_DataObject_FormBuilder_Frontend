@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="DB_DataObject_FormBuilder_Frontend" default="package">
+
+    <target name="package" depends="build_package_xml">
+        <xmlproperty file="../package.xml"/>
+        <echo msg="Packaging version: ${package.version.release}"/>
+        <exec dir="../" command="pear package package.xml" passthru="false" />
+
+        <move file="../${package.name}-${package.version.release}.tgz" todir="../example/releases/" />
+
+    </target>
+
+    <target name="build_package_xml">
+        <echo msg="Updating package-file ..."/>
+        <exec dir="../" command="./package.php make" passthru="false"/>
+    </target>
+
+
+</project>
