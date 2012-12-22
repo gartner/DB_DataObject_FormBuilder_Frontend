@@ -16,7 +16,7 @@ define('__ROOT__', realpath(dirname(__FILE__) . '/../'));
  * apache-vhost. But, Composers autoloader will place the already created include-
  * paths AFTER its own packages. So, we add it again at the front.
  */
-set_include_path(__ROOT__ . '/includes' . PATH_SEPARATOR . __ROOT__ . '/src' . PATH_SEPARATOR . get_include_path());
+set_include_path(__ROOT__ . '/includes' . PATH_SEPARATOR . __ROOT__ . PATH_SEPARATOR . get_include_path());
 
 /*
  * Setup dataobjects
