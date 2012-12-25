@@ -95,6 +95,35 @@ class DB_DataObject_FormBuilder_Frontend
     protected $quickFormRendererMethod = null;
 
     /**
+     * Templates for the QuickForm-renderer.
+     * However, only if it is the HTML_QuickForm_Renderer_Default that is used.
+     * Templates are always assigned to the renderer if it is the _Default-renderer,
+     * even if you set the renderer using setQuickFormRenderer()!!
+     *
+     * @var array Templates to set for the quickformRenderer
+     *            Only set for the default renderer (HTML_QuickForm_Renderer_Default)
+     *            Templates used:
+     *            'element'      => passed to setElementTemplate()
+     *            'form'         => passed to setFormTemplate()
+     *            'groupElement' => passed to setGroupElementTemplate()
+     *            'group'        => passed to setGroupTemplate()
+     *            'header'       => passed to setHeaderTemplate()
+     *            'requiredNote' => passed to setRequiredNoteTemplate();
+     */
+    protected $quickFormTemplates = array(
+        'form' => '
+            <form{attributes}>
+                <div>
+                {hidden}
+                    <table class="form">
+                    {content}
+                    </table>
+                </div>
+            </form>
+        ',
+    );
+
+    /**
      * Loaded plugins.
      *
      * The plugin-name is used as key, the contents is an array:
@@ -320,6 +349,10 @@ class DB_DataObject_FormBuilder_Frontend
      * How to display any formErrors.
      * It is always placed on top of the form itself (before the form)
      * - default in this template.
+     *
+     * Can take placeholders:
+     * {message} - replaced with the error-message from the database
+     * {details} - replaced with the error-details, as reported by the db-layer.
      * 
      * @var string
      */
@@ -1592,7 +1625,24 @@ class DB_DataObject_FormBuilder_Frontend
                 }
             }
 
-            // TODO: formErrorTemplate should be read from config
+            // Set quickForm options
+            // (and formErrorTemplate)
+            if (isset($config[0]->quickForm)) {
+                $c = $config[0]->quickForm;
+
+                if (isset($c->formErrorTemplate)) {
+                    $this->formErrorTemplate = (string) $c->formErrorTemplate;
+                }
+
+                if (isset($c->renderer)) {
+                    if (isset($c->renderer->templates->template)) {
+                        foreach ($c->renderer->templates->template as $o) {
+                            $this->quickFormTemplates[(string) $o['name']]
+                                = (string) $o;
+                        }
+                    }
+                }
+            }
 
         }
 
@@ -2073,6 +2123,19 @@ class DB_DataObject_FormBuilder_Frontend
      */
     public function getQuickFormRenderer()
     {
+        if (!($this->quickFormRenderer instanceof HTML_QuickForm_Renderer)) {
+            include_once 'HTML/QuickForm/Renderer/Default.php';
+            $this->quickFormRenderer = new HTML_QuickForm_Renderer_Default();
+            $this->quickFormRendererMethod = 'toHtml';
+        }
+
+        if ($this->quickFormRenderer instanceof HTML_QuickForm_Renderer_Default) {
+            foreach ($this->quickFormTemplates as $name => $template) {
+                $method = 'set' . ucfirst($name) . 'Template';
+                $this->quickFormRenderer->{$method}($template);
+            }
+        }
+
         return $this->quickFormRenderer;
     }
 

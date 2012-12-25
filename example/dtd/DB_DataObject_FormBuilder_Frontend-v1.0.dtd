@@ -3,12 +3,12 @@
 
 <!ELEMENT defaults      (description, recordsPerPage, allowDelete, allowAdd,
                          labels, confirmDelete, deleteMessage, css?, javascriptPath?,
-                         cssPath?, fbOptions?, plugins?, dataGridRenderer?)>
+                         cssPath?, fbOptions?, plugins?, dataGridRenderer?, quickForm?)>
 <!ATTLIST defaults
 displayName             CDATA   #REQUIRED>
 
 <!ELEMENT fbOptions     (fbOption*, requiredNote?)>
-<!ELEMENT fbOption      (#PCDATA|key)*>
+<!ELEMENT fbOption      (#PCDATA|key|option)*>
 <!--
 In reality, all scalar formBuilder-optoins can be set here, and the will be used.
 But unless specified as a value for the name-attribute, it will violate the DTD!
@@ -47,6 +47,19 @@ The name-attribute is used as the key in the array passed as rendererOptions
 <!ATTLIST dataGridRendererOption
 name                    CDATA   #REQUIRED>
 
+<!ELEMENT quickForm     (renderer?, formErrorTemplate?)>
+<!ELEMENT renderer      (templates)>
+<!ELEMENT templates     (template+)>
+<!ELEMENT template      (#PCDATA)>
+<!ATTLIST template
+name                    CDATA (element|form|groupElement|group|header|requiredNote) #REQUIRED>
+
+<!--
+Strictly speaking, formErrorTemplate has nothing to do with quickForm
+but to keep things a little bit organized, its placed here ...
+-->
+<!ELEMENT formErrorTemplate     (#PCDATA)>
+
 <!-- key element is deprecated - use option instead -->
 <!ELEMENT key           (#PCDATA|key)*>
 <!ATTLIST key
@@ -58,7 +71,7 @@ name                    CDATA   #IMPLIED>
 
 <!ELEMENT table			(name, listName?, displayName, description, recordsPerPage?, allowDelete?,
                         allowAdd?, labels?, confirmDelete?, deleteMessage?,
-                        listColumns, css?, fbOptions?, plugins?, dataGridRenderer?)>
+                        listColumns, css?, fbOptions?, plugins?, dataGridRenderer?, quickForm?)>
 
 <!ATTLIST table
 enabled                 (no|yes|0|1)   "yes">
