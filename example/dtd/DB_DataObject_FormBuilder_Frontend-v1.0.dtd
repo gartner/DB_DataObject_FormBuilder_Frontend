@@ -52,7 +52,7 @@ name                    CDATA   #REQUIRED>
 <!ELEMENT templates     (template+)>
 <!ELEMENT template      (#PCDATA)>
 <!ATTLIST template
-name                    CDATA (element|form|groupElement|group|header|requiredNote) #REQUIRED>
+name                    (element|form|groupElement|group|header|requiredNote) #REQUIRED>
 
 <!--
 Strictly speaking, formErrorTemplate has nothing to do with quickForm
