@@ -92,7 +92,7 @@ class DB_DataObject_FormBuilder_Frontend_Plugin_DeleteFromListview
 
         // Create the column and add it to the grid
         $col = $this->frontend->getColumn('__del__', $attr);
-        $dg->addColumn($col->getColumn(), 'after', '__delete__');
+        $dg->addColumn($col->getColumn(), 'first');
 
     }
 
