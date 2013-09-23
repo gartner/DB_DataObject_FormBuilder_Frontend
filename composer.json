@@ -1,7 +1,6 @@
 {
     "name": "DB_DataObject_FormBuilder_Frontend",
-    "version": "dev-master",
-    
+
     "config": {
         "vendor-dir": "includes/vendor"
     },
