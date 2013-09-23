@@ -1,0 +1,7 @@
+{
+    "packages": {
+        "gartner/DB_DataObject_FormBuilder_Frontend": {
+            "dev-master": { @composer.json }
+        }
+    }
+}
