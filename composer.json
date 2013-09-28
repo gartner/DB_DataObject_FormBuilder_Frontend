@@ -14,7 +14,7 @@
         }
     ],
 
-    "include_path": ["./"],
+    "include_path": ["/"],
 
     "require": {
         "pear-pear/DB_DataObject" : ">=1.10.0",
