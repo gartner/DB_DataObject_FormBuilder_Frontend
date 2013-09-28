@@ -2,10 +2,6 @@
     "name": "gartner/DB_DataObject_FormBuilder_Frontend",
     "type": "library",
     
-    "autoload": {
-        "classmap": [ "DB/" ]
-    },
-    
     "repositories": [
         {
             "type": "pear",
