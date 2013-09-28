@@ -11,7 +11,11 @@
     ],
 
     "include-path": ["/"],
-
+    "autoload": {
+        "psr-0" : {
+            "DB_" : "./"
+        }
+    },
     "require": {
         "pear-pear/DB_DataObject" : ">=1.10.0",
         "pear-pear/DB_DataObject_FormBuilder" : ">=1.0",
