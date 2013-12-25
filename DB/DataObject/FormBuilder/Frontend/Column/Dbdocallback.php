@@ -79,9 +79,14 @@ class DB_DataObject_FormBuilder_Frontend_Column_Dbdocallback
         if ($record instanceof DB_DataObject_FormBuilder_Frontend_Column_OptionsInterface) {
             $record->setColumnCallbackOptions($extra);
         }
-
         if (method_exists($record, $method)) {
-            return $record->$method();
+            // Hack'ish: Getting options passed from configfile, then removing the callbackname,
+            // before passing it to the callback.
+            $options = $extra['__options'];
+            unset($options['callbackName']);
+
+            return call_user_func_array(array($record, $method), $options);
+
         } else {
             include_once 'DB/DataObject/FormBuilder/Frontend/Exception.php';
             throw new DB_DataObject_FormBuilder_Frontend_Exception(
