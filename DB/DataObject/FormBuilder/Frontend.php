@@ -965,12 +965,14 @@ class DB_DataObject_FormBuilder_Frontend
                     }
                 }
             }
+            $postedUrl['table'] = $_POST['table'];
         }
 
         $url = $this->getUrl(
             $postedUrl, false, array('record',
             'addRecord', 'delete', 'confirmed', 'not_confirmed'), '&'
         );
+
         header('Location: http://' . $_SERVER['HTTP_HOST'] . $url);
         header('Connection: close');
         exit;
