@@ -835,7 +835,9 @@ class DB_DataObject_FormBuilder_Frontend
         $this->mode = self::DELETE;
 
         // TODO: use getDataObject() here
-        $this->do = DB_DataObject::factory($this->tableName);
+        if (empty($this->do)) {
+            $this->do = DB_DataObject::factory($this->tableName);
+        }
         $this->readConfig($this->tableName);
 
         $pk = DB_DataObject_FormBuilder::_getPrimaryKey($this->do);
@@ -963,12 +965,14 @@ class DB_DataObject_FormBuilder_Frontend
                     }
                 }
             }
+            $postedUrl['table'] = $_POST['table'];
         }
 
         $url = $this->getUrl(
             $postedUrl, false, array('record',
             'addRecord', 'delete', 'confirmed', 'not_confirmed'), '&'
         );
+
         header('Location: http://' . $_SERVER['HTTP_HOST'] . $url);
         header('Connection: close');
         exit;
