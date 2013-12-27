@@ -1031,7 +1031,10 @@ class DB_DataObject_FormBuilder_Frontend
         // Set formbuilder-options from the configfile, on the DataObject.
         // This WILL override any options set inside the DataObject-class-file!
         foreach ($this->fbOptions as $key => $value) {
-            $key             = 'fb_' . $key;
+            if ('validateOnProcess' === $key) {
+                $value = (bool) $value;
+            }
+            $key      = 'fb_' . $key;
             $do->$key = $value;
         }
 
