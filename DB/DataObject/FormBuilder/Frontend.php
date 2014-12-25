@@ -831,7 +831,7 @@ class DB_DataObject_FormBuilder_Frontend
     public function delete()
     {
         // Delete record
-        $postedUrl  = array();
+        $returnUrl  = $this->getQueryParamsArray();
         $this->mode = self::DELETE;
 
         // TODO: use getDataObject() here
@@ -924,13 +924,21 @@ class DB_DataObject_FormBuilder_Frontend
                 return $out;
             }
 
-            $postedUrl = unserialize($this->form->getSubmitValue('__url'));
+            // This will restore the url that was in the first call to delete()
+            // (the call to confirm the delete)
+            $returnUrl = unserialize($this->form->getSubmitValue('__url'));
         }
 
         // Do the actual deletion
         if (!$this->confirmDelete
             || ($this->confirmDelete && isset($_REQUEST['confirmed']))
         ) {
+
+            // If we come here after a delete-confirm, retrieve the url we should
+            // return to after the delete
+            if (isset($_REQUEST['__url'])) {
+                $returnUrl = unserialize($_REQUEST['__url']);
+            }
 
             if (!empty($records)) {
                 if (is_array($records)) {
@@ -969,7 +977,7 @@ class DB_DataObject_FormBuilder_Frontend
         }
 
         $url = $this->getUrl(
-            $postedUrl, false, array('record',
+            $returnUrl, false, array('record',
             'addRecord', 'delete', 'confirmed', 'not_confirmed'), '&'
         );
 
