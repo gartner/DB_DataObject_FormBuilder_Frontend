@@ -916,6 +916,7 @@ class DB_DataObject_FormBuilder_Frontend
                 $this->setupDataGrid(false, false);
 
                 $out  = '<p>' . $this->deleteMessage . '</p>';
+                $out .= ($this->formError ?: '');
                 $out .= $this->getDataGridOutput();
                 $_POST['record'] = serialize($_REQUEST['record']);
                 $_REQUEST['record'] = $_POST['record'];
@@ -964,7 +965,16 @@ class DB_DataObject_FormBuilder_Frontend
                 }
 
                 if ($cancelDelete !== true) {
-                    $this->do->delete($deleteMode);
+                    $rv = $this->do->delete($deleteMode);
+
+                    if (false == $rv && $this->do->_lastError instanceof PEAR_Error) {
+                        $this->addFormError(
+                            $this->do->_lastError->getMessage(),
+                            $this->do->_lastError->userinfo
+                        );
+
+                        return $this->formError;
+                    }
 
                     // Callback into DBDO for postDelete()
                     if ($this->do instanceof DB_DataObject_FormBuilder_Frontend_Hooks_Delete) {
