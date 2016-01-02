@@ -22,7 +22,6 @@
   },
   "require": {
     "pear-pear/DB_DataObject": ">=1.10.0",
-    "pear-pear/DB_DataObject_FormBuilder": ">=1.0",
     "pear-pear/Structures_DataGrid": ">=0.9.3",
     "pear-pear/Structures_DataGrid_DataSource_DataObject": ">=0.2.1",
     "pear-pear/Structures_DataGrid_DataSource_Array": ">=0.1.4",
