@@ -21,13 +21,14 @@
     }
   },
   "require": {
-    "pear-pear/DB_DataObject": ">=1.10.0",
-    "pear-pear/Structures_DataGrid": ">=0.9.3",
-    "pear-pear/Structures_DataGrid_DataSource_DataObject": ">=0.2.1",
-    "pear-pear/Structures_DataGrid_DataSource_Array": ">=0.1.4",
-    "pear-pear/Structures_DataGrid_Renderer_HTMLTable": ">=0.1.6",
-    "pear-pear/Structures_DataGrid_Renderer_Pager": ">=0.1.3",
+    "pear/DB_DataObject": ">=1.10.0",
+    "pear/DB_DataObject_FormBuilder": ">=1.0",
+    "pear/Structures_DataGrid": ">=0.9.3",
+    "pear/Structures_DataGrid_DataSource_DataObject": ">=0.2.1",
+    "pear/Structures_DataGrid_DataSource_Array": ">=0.1.4",
+    "pear/Structures_DataGrid_Renderer_HTMLTable": ">=0.1.6",
+    "pear/Structures_DataGrid_Renderer_Pager": ">=0.1.3",
     "pear/HTML_QuickForm": ">=3.2.14",
-    "pear-pear/Pager": ">=2.4.8"
+    "pear/Pager": ">=2.4.8"
   }
 }
