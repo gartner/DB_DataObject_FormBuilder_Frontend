@@ -17,14 +17,14 @@
         }
     },
     "require": {
-        "pear-pear/DB_DataObject" : ">=1.10.0",
-        "pear-pear/DB_DataObject_FormBuilder" : ">=1.0",
-        "pear-pear/Structures_DataGrid" : ">=0.9.3",
-        "pear-pear/Structures_DataGrid_DataSource_DataObject": ">=0.2.1",
-        "pear-pear/Structures_DataGrid_DataSource_Array": ">=0.1.4",
-        "pear-pear/Structures_DataGrid_Renderer_HTMLTable": ">=0.1.6",
-        "pear-pear/Structures_DataGrid_Renderer_Pager": ">=0.1.3",
-        "pear-pear/HTML_QuickForm" : ">=3.2.13",
-        "pear-pear/Pager" : ">=2.4.8"
+        "pear-pear.php.net/DB_DataObject" : ">=1.10.0",
+        "pear-pear.php.net/DB_DataObject_FormBuilder" : ">=1.0",
+        "pear-pear.php.net/Structures_DataGrid" : ">=0.9.3",
+        "pear-pear.php.net/Structures_DataGrid_DataSource_DataObject": ">=0.2.1",
+        "pear-pear.php.net/Structures_DataGrid_DataSource_Array": ">=0.1.4",
+        "pear-pear.php.net/Structures_DataGrid_Renderer_HTMLTable": ">=0.1.6",
+        "pear-pear.php.net/Structures_DataGrid_Renderer_Pager": ">=0.1.3",
+        "pear-pear.php.net/HTML_QuickForm" : ">=3.2.13",
+        "pear-pear.php.net/Pager" : ">=2.4.8"
     }
 }
