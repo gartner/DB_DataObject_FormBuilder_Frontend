@@ -71,7 +71,7 @@ class DB_DataObject_FormBuilder_Frontend_Plugin_DateToDateselect
      */
     public function pageHeader(
         DB_DataObject $do,
-        DB_DataObject_FormBuilder $fb = null
+        $fb = null
     ) {
         if ($this->frontend->getMode() == DB_DataObject_FormBuilder_Frontend::EDIT) {
             $this->frontend->addJavascript('jquery.js');
