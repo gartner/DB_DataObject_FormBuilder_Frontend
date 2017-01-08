@@ -2515,7 +2515,7 @@ class DB_DataObject_FormBuilder_Frontend
      */
     public function getEditLink($params, $extra)
     {
-        $pk = $params['record']->$extra['pk'];
+        $pk = $params['record']->{$extra['pk']};
 
         if ($params['record'] instanceof DB_DataObject_FormBuilder_Frontend_Hooks_Access) {
 
@@ -2543,7 +2543,7 @@ class DB_DataObject_FormBuilder_Frontend
      */
     public function getDeleteLink($params, $extra)
     {
-        $pk = $params['record']->$extra['pk'];
+        $pk = $params['record']->{$extra['pk']};
 
         if ($params['record'] instanceof DB_DataObject_FormBuilder_Frontend_Hooks_Access) {
             if ($params['record']->isDeleteable() !== true) {
