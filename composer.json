@@ -17,6 +17,6 @@
     
     "extra": {
         "These packages are needed also": "but not yet properly added to requirements",
-        "pear-pear.php.net/DB_DataObject" : ">=1.10.0",
+        "pear-pear.php.net/DB_DataObject" : ">=1.10.0"
     }
 }
